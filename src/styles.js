@@ -34,6 +34,7 @@ export const Input = styled.input`
   height: 58px;
   border-radius: 14px;
   border: none;
+  outline: none;
 
   font-family: Roboto;
   font-size: 18px;
@@ -66,5 +67,38 @@ export const Button = styled.button`
   }
   &:active {
     opacity: 0.7;
+  }
+`;
+export const Order = styled.li`
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  width: 338px;
+  height: 63px;
+  border-radius: 14px;
+
+  border: none;
+  outline: none;
+
+  padding-left: 10px;
+
+  background: #ffffff40;
+
+  p {
+    font-size: 10px;
+    font-weight: 300;
+    line-height: 15px;
+    letter-spacing: 0px;
+    text-align: left;
+    color: #ffffff;
+  }
+
+  button {
+    margin-right: 17px;
+    background: none;
+    border: none;
+    cursor: pointer;
   }
 `;
