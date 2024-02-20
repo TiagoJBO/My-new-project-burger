@@ -36,7 +36,7 @@ export const Input = styled.input`
   border: none;
   outline: none;
 
-  font-family: Roboto;
+  
   font-size: 18px;
   font-weight: 300;
   letter-spacing: 0px;
@@ -87,12 +87,13 @@ export const Order = styled.li`
   background: #ffffff40;
 
   p {
-    font-size: 10px;
+    
+    font-size: 18px;
     font-weight: 300;
-    line-height: 15px;
-    letter-spacing: 0px;
-    text-align: left;
+    letter-spacing: 0px;    
+    padding-left: 10px;
     color: #ffffff;
+    
   }
 
   button {

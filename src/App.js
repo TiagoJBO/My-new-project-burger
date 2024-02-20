@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
+import axios from "axios";
 import {
   Container,
   H1,
@@ -13,44 +14,70 @@ import Trash from "./Assets/trashOrders.png";
 
 const App = () => {
   const [pedidos, setPedidos] = useState([]);
-  const [takingOrder, setTakingOrder] = useState();
-  const [takingName, setTakingName] = useState();
+  const inputOrder = useRef();
+  const inputClientName = useRef();
 
-  const clickAddOrder = () => {
-    setPedidos([{ id: Math.random(), takingOrder, takingName }])
+
+
+  // Tipp POST
+  async function clickAddOrder() {
+    const { data: newOrder } = await axios.post("http://localhost:3005/order", {
+      order: inputOrder.current.value,
+      clientName: inputClientName.current.value,
+    });
+
+    setPedidos([...pedidos, newOrder]);
   }
 
-  const addOrders = (event) => {
-    setTakingOrder(event.target.value);
-  }
-  const addName = (event) => {
-    setTakingName(event.target.value);
-  }
 
+  //Tipo GET
+  useEffect(() => {
+    async function fetchOrder() {
+      const { data: allOrders } = await axios.get(
+        "http://localhost:3005/order"
+      );
+      setPedidos(allOrders);
+    }
+    fetchOrder();
+  }, []);
+
+// Tipo DELETE
+  const delOrder = async (orderid) => {
+    await axios.delete(`http://localhost:3005/order/${orderid}`);
+    const newOrder = pedidos.filter((order) => order.id !== orderid);
+    setPedidos(newOrder);
+  };
   return (
     <Container>
       <Image alt="logo-burger" src={LogoBurger} />
       <H1>Faça seu Pedido</H1>
 
       <InputLabel>Pedido</InputLabel>
-      <Input onChange={addOrders} placeholder="Pedido" />
+      <Input ref={inputOrder} name="pedidos" placeholder="Pedido" />
 
       <InputLabel>Nome do Cliente</InputLabel>
-      <Input onChange={addName} placeholder="Nome do Cliente" />
+      <Input
+        ref={inputClientName}
+        name="nome do cliente"
+        placeholder="Nome do Cliente"
+      />
 
       <Button onClick={clickAddOrder}>Novo Pedido</Button>
 
       <ul>
         {pedidos.map((order) => (
           <Order key={order.id}>
+            <p>{order.clientName}</p>
+
             <p>
-              {order.clienteName} <br />
-              {order.order} <br />
-              {order.price} <br />
+              {order.order}
+              <br />
               {order.status}
+              <br />
+              {order.price}
             </p>
 
-            <button>
+            <button onClick={() => delOrder(order.id)}>
               <img src={Trash} alt="Lata-de -lixo" />
             </button>
           </Order>
