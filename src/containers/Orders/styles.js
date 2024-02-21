@@ -21,41 +21,18 @@ export const H1 = styled.h1`
   color: #ffffff;
   padding-top: 25px;
 `;
-export const InputLabel = styled.p`
-  width: 318px;
-  font-size: 18px;
-  font-weight: 700;
-  line-height: 21px;
-  color: #eeeeee;
-  padding-top: 53px;
-`;
-export const Input = styled.input`
-  width: 342px;
-  height: 58px;
-  border-radius: 14px;
-  border: none;
-  outline: none;
-
-  
-  font-size: 18px;
-  font-weight: 300;
-  letter-spacing: 0px;
-  text-align: left;
-  padding-left: 10px;
-  color: #ffffff;
-  background: #ffffff40;
-`;
 
 export const Button = styled.button`
   width: 342px;
   height: 68px;
   padding: 0px, 113px, 0px, 113px;
-  background: #d93856;
+  background: #ffffff24;
   width: 342px;
   height: 68px;
-  margin-top: 50px;
+  margin-top: 85px;
   border-radius: 20px;
   cursor: pointer;
+  border: none;
   font-size: 17px;
   font-weight: 900;
   line-height: 3px;
@@ -72,12 +49,11 @@ export const Button = styled.button`
 export const Order = styled.li`
   margin-top: 15px;
   display: flex;
-  justify-content: space-around;
-  align-items: center;
 
-  width: 338px;
-  height: 63px;
+  width: 342px;
+  height: 101px;
   border-radius: 14px;
+  flex-flow: nowrap;
 
   border: none;
   outline: none;
@@ -87,17 +63,35 @@ export const Order = styled.li`
   background: #ffffff40;
 
   p {
-    
-    font-size: 18px;
+    width: 188px;
+    height: 21px;
+    margin-top: 9px;
+    margin-left: -58px;
+
+    font-size: 12px;
     font-weight: 300;
-    letter-spacing: 0px;    
-    padding-left: 10px;
+    line-height: 21px;
+    letter-spacing: 0px;
+    text-align: left;
+
     color: #ffffff;
-    
+  }
+  .pName {
+    width: 90px;
+    height: 21px;
+    margin-top: 77px;
+    margin-left: 27px;
+
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 21px;
+    letter-spacing: 0px;
+    text-align: left;
   }
 
   button {
-    margin-right: 17px;
+    margin-left: 112px;
+    margin-right: 43px;
     background: none;
     border: none;
     cursor: pointer;
