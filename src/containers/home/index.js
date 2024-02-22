@@ -1,23 +1,16 @@
 import React, { useState, useRef } from "react";
-import axios from "axios";
-import {
-  Container,
-  H1,
-  Input,
-  Button,
-  Image,
-  InputLabel,
-  
-} from "./styles";
-import LogoBurger from "../../Assets/LogoBurger.png";
+import { useHistory } from "react-router-dom";
+import  Button  from "../../Components/Button";
 
+import axios from "axios";
+import { Container, H1, Input, Image, InputLabel } from "./styles";
+import LogoBurger from "../../Assets/LogoBurger.png";
 
 const App = () => {
   const [pedidos, setPedidos] = useState([]);
   const inputOrder = useRef();
   const inputClientName = useRef();
-
-
+  const history = useHistory();
 
   // Tipp POST
   async function clickAddOrder() {
@@ -27,9 +20,9 @@ const App = () => {
     });
 
     setPedidos([...pedidos, newOrder]);
+
+    history.push("/orders");
   }
-
-
 
   return (
     <Container>
@@ -47,8 +40,6 @@ const App = () => {
       />
 
       <Button onClick={clickAddOrder}>Novo Pedido</Button>
-
-      
     </Container>
   );
 };

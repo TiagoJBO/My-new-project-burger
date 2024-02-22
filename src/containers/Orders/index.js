@@ -1,12 +1,17 @@
 import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
+import Button from "../../Components/Button";
+
 import axios from "axios";
-import { Container, H1, Button, Image, Order } from "./styles";
+import { Container, H1, Image, Order } from "./styles";
 import LogoBurger1 from "../../Assets/LogoBurger1.1.png";
 import Trash from "../../Assets/trashOrders.png";
 
 const Orders = () => {
   const [pedidos, setPedidos] = useState([]);
-  
+
+  const history = useHistory();
+  console.log(history);
 
   //Tipo GET
   useEffect(() => {
@@ -25,6 +30,10 @@ const Orders = () => {
     const newOrder = pedidos.filter((order) => order.id !== orderid);
     setPedidos(newOrder);
   };
+  const goBack = () => {
+    history.push("/");
+  };
+
   return (
     <Container>
       <Image alt="logo-burger" src={LogoBurger1} />
@@ -34,7 +43,6 @@ const Orders = () => {
       <ul>
         {pedidos.map((order) => (
           <Order key={order.id}>
-
             <p className="pName">{order.clientName}</p>
 
             <p>
@@ -52,7 +60,9 @@ const Orders = () => {
         ))}
       </ul>
 
-      <Button>Voltar</Button>
+      <Button isBack={true} onClick={goBack}>
+        Voltar
+      </Button>
     </Container>
   );
 };

@@ -1,11 +1,14 @@
 import styled from "styled-components";
 
+
 export const Container = styled.div`
   background: #000000;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  height: 100%;
+    min-height: 100vh;
 `;
 export const Image = styled.img`
   width: 342px;
@@ -45,26 +48,4 @@ export const Input = styled.input`
   background: #ffffff40;
 `;
 
-export const Button = styled.button`
-  width: 342px;
-  height: 68px;
-  padding: 0px, 113px, 0px, 113px;
-  background: #d93856;
-  width: 342px;
-  height: 68px;
-  margin-top: 76px;
-  border-radius: 20px;
-  cursor: pointer;
-  font-size: 17px;
-  font-weight: 900;
-  line-height: 3px;
-  letter-spacing: 0px;
-  text-align: center;
-  color: #ffffff;
-  &:hover {
-    opacity: 0.9;
-  }
-  &:active {
-    opacity: 0.7;
-  }
-`;
+
