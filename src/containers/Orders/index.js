@@ -11,7 +11,7 @@ const Orders = () => {
   const [pedidos, setPedidos] = useState([]);
 
   const history = useHistory();
-  console.log(history);
+  
 
   //Tipo GET
   useEffect(() => {
